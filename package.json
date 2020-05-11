@@ -1,0 +1,25 @@
+{
+	"name": "api-lambda-crud-attestation-db",
+	"version": "1.0.0",
+	"description": "Running API Gateway with lambdas for CRUD operations on a DynamoDB",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"watch": "tsc -w",
+		"cdk": "cdk"
+	},
+	"author": "Arun Kumar Kasireddi",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^13.13.5",
+		"node": "^14.2.0",
+		"typescript": "^3.8.3"
+	},
+	"dependencies": {
+		"aws-cdk": "^1.38.0",
+		"@aws-cdk/aws-apigateway": "*",
+		"@aws-cdk/aws-dynamodb": "*",
+		"@aws-cdk/aws-lambda": "*",
+		"@aws-cdk/core": "*"
+	}
+}

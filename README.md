@@ -16,6 +16,8 @@ This will install the necessary CDK, then this example's dependencies, and then 
 
 ## Deploy
 
+To run on AWS account, you need to run `cdk bootstrap` to create the S3 bucket to store assests
+
 Run `cdk deploy`. This will deploy / redeploy your Stack to your AWS Account.
 
 After the deployment you will see the API's URL, which represents the url you can then use.

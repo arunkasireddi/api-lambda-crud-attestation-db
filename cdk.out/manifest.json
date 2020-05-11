@@ -1,0 +1,488 @@
+{
+  "version": "2.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "ApiLambdaCrudAttestationDB": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ApiLambdaCrudAttestationDB.template.json"
+      },
+      "metadata": {
+        "/ApiLambdaCrudAttestationDB": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626",
+              "id": "3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626",
+              "packaging": "zip",
+              "sourceHash": "3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626",
+              "s3BucketParameter": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626S3Bucket76B9B64B",
+              "s3KeyParameter": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626S3VersionKeyF86E071D",
+              "artifactHashParameter": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626ArtifactHashCE705FD9"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/construct-compat.js:306:62)",
+              "ApiLambdaCrudAttestationDBStack.addFileAsset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/stack.js:372:23)",
+              "new Asset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:30:32)",
+              "AssetCode.bind (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function.js:69:33)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:22:27)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "lm_app_env",
+                "Value": "dev"
+              },
+              {
+                "Key": "lm_app",
+                "Value": "ApiLambdaCrudAttestationDB"
+              },
+              {
+                "Key": "lm_troux_uid",
+                "Value": "495DA6AE-6F13-45A6-9FA7-0288F408942F"
+              },
+              {
+                "Key": "deployment_guid",
+                "Value": "c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09"
+              },
+              {
+                "Key": "Name",
+                "Value": "ApiLambdaCrudAttestationDB"
+              },
+              {
+                "Key": "lm_sbu",
+                "Value": "ICM"
+              },
+              {
+                "Key": "gde_subscribe_es_logging",
+                "Value": "true"
+              },
+              {
+                "Key": "gde_logging_index",
+                "Value": "ApiLambdaCrudAttestationDB"
+              }
+            ],
+            "trace": [
+              "ConstructNode.addMetadata (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/construct-compat.js:306:62)",
+              "ApiLambdaCrudAttestationDBStack.synthesize (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/stack.js:579:23)",
+              "ApiLambdaCrudAttestationDBStack.onSynthesize (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/construct-compat.js:82:14)",
+              "Node.synthesize (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/constructs/lib/construct.js:342:27)",
+              "Function.synth (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/construct-compat.js:170:26)",
+              "App.synth (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/app.js:72:59)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:88:5)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItems": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": "attestationItems",
+            "trace": [
+              "ConstructNode.addMetadata (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/construct-compat.js:306:62)",
+              "new Table (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:248:23)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:11:29)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItems/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsF5F56F35",
+            "trace": [
+              "new Table (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:230:22)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:11:29)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/createItemFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createItemFunctionServiceRole1BBF2178",
+            "trace": [
+              "new Role (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-iam/lib/role.js:41:22)",
+              "new Function (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function.js:61:35)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:22:27)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/createItemFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createItemFunctionServiceRoleDefaultPolicy8FAF1611",
+            "trace": [
+              "new Policy (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-iam/lib/policy.js:30:26)",
+              "Role.addToPolicy (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-iam/lib/role.js:161:34)",
+              "Function.addToPrincipal (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-iam/lib/grant.js:57:65)",
+              "Table.grant (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:45:26)",
+              "Table.grantReadWriteData (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:127:61)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:31:21)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/createItemFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createItemFunction8D47E48A",
+            "trace": [
+              "new Function (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function.js:72:26)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:22:27)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/AssetParameters/3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626S3Bucket76B9B64B",
+            "trace": [
+              "new FileAssetParameters (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:11:36)",
+              "ApiLambdaCrudAttestationDBStack.addFileAsset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/stack.js:362:22)",
+              "new Asset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:30:32)",
+              "AssetCode.bind (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function.js:69:33)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:22:27)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/AssetParameters/3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626S3VersionKeyF86E071D",
+            "trace": [
+              "new FileAssetParameters (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:15:35)",
+              "ApiLambdaCrudAttestationDBStack.addFileAsset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/stack.js:362:22)",
+              "new Asset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:30:32)",
+              "AssetCode.bind (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function.js:69:33)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:22:27)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/AssetParameters/3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626ArtifactHashCE705FD9",
+            "trace": [
+              "new FileAssetParameters (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:19:38)",
+              "ApiLambdaCrudAttestationDBStack.addFileAsset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/core/lib/stack.js:362:22)",
+              "new Asset (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:30:32)",
+              "AssetCode.bind (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/code.js:135:26)",
+              "new Function (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function.js:69:33)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:22:27)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApi9958D1AA",
+            "trace": [
+              "new RestApi (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:32:26)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:32:21)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiDeployment87F187B2fa56a014d6991a7e396b8bd85c5c00ac",
+            "trace": [
+              "new Deployment (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/deployment.js:40:25)",
+              "RestApi.configureDeployment (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:197:38)",
+              "new RestApi (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:46:14)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:32:21)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiDeploymentStageprod5513DF87",
+            "trace": [
+              "new Stage (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/stage.js:47:26)",
+              "RestApi.configureDeployment (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:205:36)",
+              "new RestApi (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:46:14)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:32:21)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiEndpoint11298DCA",
+            "trace": [
+              "RestApi.configureDeployment (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:209:13)",
+              "new RestApi (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:46:14)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:32:21)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiCloudWatchRole796D611A",
+            "trace": [
+              "new Role (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-iam/lib/role.js:41:22)",
+              "RestApi.configureCloudWatchRole (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:218:22)",
+              "new RestApi (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:49:18)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:32:21)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiAccountA733A11C",
+            "trace": [
+              "RestApi.configureCloudWatchRole (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:222:26)",
+              "new RestApi (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/restapi.js:49:18)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:32:21)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiattestationItemsCD6DAAA0",
+            "trace": [
+              "new Resource (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:170:26)",
+              "RootResource.addResource (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:14:16)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:35:32)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/POST/ApiPermission.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiattestationItemsPOSTApiPermissionApiLambdaCrudAttestationDBattestationItemsApi99B7EC8CPOSTattestationItems593D67B3",
+            "trace": [
+              "Function.addPermission (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:23:9)",
+              "LambdaIntegration.bind (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.js:31:22)",
+              "Method.renderIntegration (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/method.js:89:21)",
+              "new Method (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/method.js:40:31)",
+              "Resource.addMethod (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:17:16)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:37:15)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/POST/ApiPermission.Test.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiattestationItemsPOSTApiPermissionTestApiLambdaCrudAttestationDBattestationItemsApi99B7EC8CPOSTattestationItems155894C3",
+            "trace": [
+              "Function.addPermission (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:23:9)",
+              "LambdaIntegration.bind (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.js:38:26)",
+              "Method.renderIntegration (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/method.js:89:21)",
+              "new Method (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/method.js:40:31)",
+              "Resource.addMethod (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:17:16)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:37:15)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiattestationItemsPOST38E135D5",
+            "trace": [
+              "new Method (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/method.js:46:26)",
+              "Resource.addMethod (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:17:16)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:37:15)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "attestationItemsApiattestationItemsOPTIONSCFB9536B",
+            "trace": [
+              "new Method (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/method.js:46:26)",
+              "Resource.addMethod (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/node_modules/@aws-cdk/aws-apigateway/lib/resource.js:17:16)",
+              "addCorsOptions (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:54:17)",
+              "new ApiLambdaCrudAttestationDBStack (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:38:9)",
+              "Object.<anonymous> (/Users/arun/Documents/workspace/wem/event-framework/api-lambda-crud-attestation-db/index.js:86:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "libraries": {
+      "@aws-cdk/aws-apigateway": "1.38.0",
+      "@aws-cdk/aws-iam": "1.38.0",
+      "@aws-cdk/core": "1.38.0",
+      "@aws-cdk/cx-api": "1.38.0",
+      "@aws-cdk/cloud-assembly-schema": "1.38.0",
+      "@aws-cdk/region-info": "1.38.0",
+      "@aws-cdk/aws-dynamodb": "1.38.0",
+      "@aws-cdk/aws-applicationautoscaling": "1.38.0",
+      "@aws-cdk/aws-autoscaling-common": "1.38.0",
+      "@aws-cdk/aws-cloudwatch": "1.38.0",
+      "@aws-cdk/aws-lambda": "1.38.0",
+      "@aws-cdk/aws-ec2": "1.38.0",
+      "@aws-cdk/aws-ssm": "1.38.0",
+      "@aws-cdk/aws-logs": "1.38.0",
+      "@aws-cdk/aws-s3": "1.38.0",
+      "@aws-cdk/aws-events": "1.38.0",
+      "@aws-cdk/aws-kms": "1.38.0",
+      "@aws-cdk/aws-sqs": "1.38.0",
+      "@aws-cdk/aws-s3-assets": "1.38.0",
+      "@aws-cdk/assets": "1.38.0",
+      "@aws-cdk/custom-resources": "1.38.0",
+      "jsii-runtime": "node.js/v14.2.0"
+    }
+  }
+}

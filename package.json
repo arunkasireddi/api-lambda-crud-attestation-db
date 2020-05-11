@@ -2,7 +2,6 @@
 	"name": "api-lambda-crud-attestation-db",
 	"version": "1.0.0",
 	"description": "Running API Gateway with lambdas for CRUD operations on a DynamoDB",
-	"main": "index.js",
 	"scripts": {
 		"build": "tsc",
 		"watch": "tsc -w",

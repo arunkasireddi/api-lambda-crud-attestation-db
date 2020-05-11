@@ -1,0 +1,795 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "ApiLambdaCrudAttestationDB": {
+        "id": "ApiLambdaCrudAttestationDB",
+        "path": "ApiLambdaCrudAttestationDB",
+        "children": {
+          "attestationItems": {
+            "id": "attestationItems",
+            "path": "ApiLambdaCrudAttestationDB/attestationItems",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "ApiLambdaCrudAttestationDB/attestationItems/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
+                  "aws:cdk:cloudformation:props": {
+                    "keySchema": [
+                      {
+                        "attributeName": "itemId",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "itemId",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "provisionedThroughput": {
+                      "readCapacityUnits": 5,
+                      "writeCapacityUnits": 5
+                    },
+                    "tableName": "attestationItems",
+                    "tags": [
+                      {
+                        "key": "lm_app_env",
+                        "value": "dev"
+                      },
+                      {
+                        "key": "lm_app",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      },
+                      {
+                        "key": "lm_troux_uid",
+                        "value": "495DA6AE-6F13-45A6-9FA7-0288F408942F"
+                      },
+                      {
+                        "key": "deployment_guid",
+                        "value": "c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09"
+                      },
+                      {
+                        "key": "Name",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      },
+                      {
+                        "key": "lm_sbu",
+                        "value": "ICM"
+                      },
+                      {
+                        "key": "gde_subscribe_es_logging",
+                        "value": "true"
+                      },
+                      {
+                        "key": "gde_logging_index",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      }
+                    ]
+                  }
+                }
+              },
+              "ScalingRole": {
+                "id": "ScalingRole",
+                "path": "ApiLambdaCrudAttestationDB/attestationItems/ScalingRole"
+              }
+            }
+          },
+          "createItemFunction": {
+            "id": "createItemFunction",
+            "path": "ApiLambdaCrudAttestationDB/createItemFunction",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "ApiLambdaCrudAttestationDB/createItemFunction/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ApiLambdaCrudAttestationDB/createItemFunction/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "lm_app_env",
+                            "value": "dev"
+                          },
+                          {
+                            "key": "lm_app",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          },
+                          {
+                            "key": "lm_troux_uid",
+                            "value": "495DA6AE-6F13-45A6-9FA7-0288F408942F"
+                          },
+                          {
+                            "key": "deployment_guid",
+                            "value": "c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          },
+                          {
+                            "key": "lm_sbu",
+                            "value": "ICM"
+                          },
+                          {
+                            "key": "gde_subscribe_es_logging",
+                            "value": "true"
+                          },
+                          {
+                            "key": "gde_logging_index",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "ApiLambdaCrudAttestationDB/createItemFunction/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "ApiLambdaCrudAttestationDB/createItemFunction/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "dynamodb:BatchGetItem",
+                                    "dynamodb:GetRecords",
+                                    "dynamodb:GetShardIterator",
+                                    "dynamodb:Query",
+                                    "dynamodb:GetItem",
+                                    "dynamodb:Scan",
+                                    "dynamodb:BatchWriteItem",
+                                    "dynamodb:PutItem",
+                                    "dynamodb:UpdateItem",
+                                    "dynamodb:DeleteItem"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "attestationItemsF5F56F35",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Ref": "AWS::NoValue"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "createItemFunctionServiceRoleDefaultPolicy8FAF1611",
+                            "roles": [
+                              {
+                                "Ref": "createItemFunctionServiceRole1BBF2178"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "ApiLambdaCrudAttestationDB/createItemFunction/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "ApiLambdaCrudAttestationDB/createItemFunction/Code/Stage"
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "ApiLambdaCrudAttestationDB/createItemFunction/Code/AssetBucket"
+                  }
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "ApiLambdaCrudAttestationDB/createItemFunction/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626S3Bucket76B9B64B"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626S3VersionKeyF86E071D"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626S3VersionKeyF86E071D"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "handler": "create.handler",
+                    "role": {
+                      "Fn::GetAtt": [
+                        "createItemFunctionServiceRole1BBF2178",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs12.x",
+                    "environment": {
+                      "variables": {
+                        "TABLE_NAME": {
+                          "Ref": "attestationItemsF5F56F35"
+                        },
+                        "PRIMARY_KEY": "itemId"
+                      }
+                    },
+                    "tags": [
+                      {
+                        "key": "lm_app_env",
+                        "value": "dev"
+                      },
+                      {
+                        "key": "lm_app",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      },
+                      {
+                        "key": "lm_troux_uid",
+                        "value": "495DA6AE-6F13-45A6-9FA7-0288F408942F"
+                      },
+                      {
+                        "key": "deployment_guid",
+                        "value": "c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09"
+                      },
+                      {
+                        "key": "Name",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      },
+                      {
+                        "key": "lm_sbu",
+                        "value": "ICM"
+                      },
+                      {
+                        "key": "gde_subscribe_es_logging",
+                        "value": "true"
+                      },
+                      {
+                        "key": "gde_logging_index",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "ApiLambdaCrudAttestationDB/AssetParameters",
+            "children": {
+              "3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626": {
+                "id": "3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626",
+                "path": "ApiLambdaCrudAttestationDB/AssetParameters/3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "ApiLambdaCrudAttestationDB/AssetParameters/3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626/S3Bucket"
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "ApiLambdaCrudAttestationDB/AssetParameters/3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626/S3VersionKey"
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "ApiLambdaCrudAttestationDB/AssetParameters/3e6208bdc26e28ab6487564c67b2a7b9bf02e59e317dde9f4a4b15b9af3ee626/ArtifactHash"
+                  }
+                }
+              }
+            }
+          },
+          "attestationItemsApi": {
+            "id": "attestationItemsApi",
+            "path": "ApiLambdaCrudAttestationDB/attestationItemsApi",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                  "aws:cdk:cloudformation:props": {
+                    "name": "Attestation Items Service",
+                    "tags": [
+                      {
+                        "key": "lm_app_env",
+                        "value": "dev"
+                      },
+                      {
+                        "key": "lm_app",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      },
+                      {
+                        "key": "lm_troux_uid",
+                        "value": "495DA6AE-6F13-45A6-9FA7-0288F408942F"
+                      },
+                      {
+                        "key": "deployment_guid",
+                        "value": "c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09"
+                      },
+                      {
+                        "key": "Name",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      },
+                      {
+                        "key": "lm_sbu",
+                        "value": "ICM"
+                      },
+                      {
+                        "key": "gde_subscribe_es_logging",
+                        "value": "true"
+                      },
+                      {
+                        "key": "gde_logging_index",
+                        "value": "ApiLambdaCrudAttestationDB"
+                      }
+                    ]
+                  }
+                }
+              },
+              "Deployment": {
+                "id": "Deployment",
+                "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Deployment",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Deployment/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                      "aws:cdk:cloudformation:props": {
+                        "restApiId": {
+                          "Ref": "attestationItemsApi9958D1AA"
+                        },
+                        "description": "Automatically created by the RestApi construct"
+                      }
+                    }
+                  }
+                }
+              },
+              "DeploymentStage.prod": {
+                "id": "DeploymentStage.prod",
+                "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/DeploymentStage.prod",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/DeploymentStage.prod/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                      "aws:cdk:cloudformation:props": {
+                        "restApiId": {
+                          "Ref": "attestationItemsApi9958D1AA"
+                        },
+                        "deploymentId": {
+                          "Ref": "attestationItemsApiDeployment87F187B2fa56a014d6991a7e396b8bd85c5c00ac"
+                        },
+                        "stageName": "prod",
+                        "tags": [
+                          {
+                            "key": "lm_app_env",
+                            "value": "dev"
+                          },
+                          {
+                            "key": "lm_app",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          },
+                          {
+                            "key": "lm_troux_uid",
+                            "value": "495DA6AE-6F13-45A6-9FA7-0288F408942F"
+                          },
+                          {
+                            "key": "deployment_guid",
+                            "value": "c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          },
+                          {
+                            "key": "lm_sbu",
+                            "value": "ICM"
+                          },
+                          {
+                            "key": "gde_subscribe_es_logging",
+                            "value": "true"
+                          },
+                          {
+                            "key": "gde_logging_index",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "Endpoint": {
+                "id": "Endpoint",
+                "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Endpoint"
+              },
+              "CloudWatchRole": {
+                "id": "CloudWatchRole",
+                "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/CloudWatchRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/CloudWatchRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "apigateway.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "lm_app_env",
+                            "value": "dev"
+                          },
+                          {
+                            "key": "lm_app",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          },
+                          {
+                            "key": "lm_troux_uid",
+                            "value": "495DA6AE-6F13-45A6-9FA7-0288F408942F"
+                          },
+                          {
+                            "key": "deployment_guid",
+                            "value": "c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          },
+                          {
+                            "key": "lm_sbu",
+                            "value": "ICM"
+                          },
+                          {
+                            "key": "gde_subscribe_es_logging",
+                            "value": "true"
+                          },
+                          {
+                            "key": "gde_logging_index",
+                            "value": "ApiLambdaCrudAttestationDB"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "Account": {
+                "id": "Account",
+                "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Account",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
+                  "aws:cdk:cloudformation:props": {
+                    "cloudWatchRoleArn": {
+                      "Fn::GetAtt": [
+                        "attestationItemsApiCloudWatchRole796D611A",
+                        "Arn"
+                      ]
+                    }
+                  }
+                }
+              },
+              "Default": {
+                "id": "Default",
+                "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default",
+                "children": {
+                  "attestationItems": {
+                    "id": "attestationItems",
+                    "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Fn::GetAtt": [
+                                "attestationItemsApi9958D1AA",
+                                "RootResourceId"
+                              ]
+                            },
+                            "pathPart": "attestationItems",
+                            "restApiId": {
+                              "Ref": "attestationItemsApi9958D1AA"
+                            }
+                          }
+                        }
+                      },
+                      "POST": {
+                        "id": "POST",
+                        "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/POST",
+                        "children": {
+                          "ApiPermission.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems": {
+                            "id": "ApiPermission.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems",
+                            "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/POST/ApiPermission.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": {
+                                  "Fn::GetAtt": [
+                                    "createItemFunction8D47E48A",
+                                    "Arn"
+                                  ]
+                                },
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "attestationItemsApi9958D1AA"
+                                      },
+                                      "/",
+                                      {
+                                        "Ref": "attestationItemsApiDeploymentStageprod5513DF87"
+                                      },
+                                      "/POST/attestationItems"
+                                    ]
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "ApiPermission.Test.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems": {
+                            "id": "ApiPermission.Test.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems",
+                            "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/POST/ApiPermission.Test.ApiLambdaCrudAttestationDBattestationItemsApi99B7EC8C.POST..attestationItems",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": {
+                                  "Fn::GetAtt": [
+                                    "createItemFunction8D47E48A",
+                                    "Arn"
+                                  ]
+                                },
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "attestationItemsApi9958D1AA"
+                                      },
+                                      "/test-invoke-stage/POST/attestationItems"
+                                    ]
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/POST/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "httpMethod": "POST",
+                                "resourceId": {
+                                  "Ref": "attestationItemsApiattestationItemsCD6DAAA0"
+                                },
+                                "restApiId": {
+                                  "Ref": "attestationItemsApi9958D1AA"
+                                },
+                                "authorizationType": "NONE",
+                                "integration": {
+                                  "type": "AWS_PROXY",
+                                  "uri": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":apigateway:",
+                                        {
+                                          "Ref": "AWS::Region"
+                                        },
+                                        ":lambda:path/2015-03-31/functions/",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "createItemFunction8D47E48A",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "/invocations"
+                                      ]
+                                    ]
+                                  },
+                                  "integrationHttpMethod": "POST"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "OPTIONS": {
+                        "id": "OPTIONS",
+                        "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/OPTIONS",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "ApiLambdaCrudAttestationDB/attestationItemsApi/Default/attestationItems/OPTIONS/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "httpMethod": "OPTIONS",
+                                "resourceId": {
+                                  "Ref": "attestationItemsApiattestationItemsCD6DAAA0"
+                                },
+                                "restApiId": {
+                                  "Ref": "attestationItemsApi9958D1AA"
+                                },
+                                "authorizationType": "NONE",
+                                "integration": {
+                                  "type": "MOCK",
+                                  "requestTemplates": {
+                                    "application/json": "{\"statusCode\": 200}"
+                                  },
+                                  "passthroughBehavior": "NEVER",
+                                  "integrationResponses": [
+                                    {
+                                      "statusCode": "200",
+                                      "responseParameters": {
+                                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                                        "method.response.header.Access-Control-Allow-Origin": "'*'",
+                                        "method.response.header.Access-Control-Allow-Credentials": "'false'",
+                                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE'"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "methodResponses": [
+                                  {
+                                    "statusCode": "200",
+                                    "responseParameters": {
+                                      "method.response.header.Access-Control-Allow-Headers": true,
+                                      "method.response.header.Access-Control-Allow-Methods": true,
+                                      "method.response.header.Access-Control-Allow-Credentials": true,
+                                      "method.response.header.Access-Control-Allow-Origin": true
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

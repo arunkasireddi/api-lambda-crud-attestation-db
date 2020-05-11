@@ -2,12 +2,13 @@ import apigateway = require('@aws-cdk/aws-apigateway');
 import dynamodb = require('@aws-cdk/aws-dynamodb');
 import lambda = require('@aws-cdk/aws-lambda');
 import cdk = require('@aws-cdk/core');
+import { Tag } from '@aws-cdk/core';
 
 export class ApiLambdaCrudAttestationDBStack extends cdk.Stack {
 	constructor(app: cdk.App, id: string) {
 		super(app, id);
 
-		const dynamoTable = new dynamodb.Table(this, 'items', {
+		const dynamoTable = new dynamodb.Table(this, 'attestationItems', {
 			partitionKey: {
 				name: 'itemId',
 				type: dynamodb.AttributeType.STRING,
@@ -42,6 +43,17 @@ export class ApiLambdaCrudAttestationDBStack extends cdk.Stack {
 		items.addMethod('POST', createOneIntegration);
 		addCorsOptions(items);
 	}
+}
+
+export function addTags(app: cdk.App, stackName: string) {
+	Tag.add(app, 'lm_app_env', 'dev');
+	Tag.add(app, 'lm_app', stackName);
+	Tag.add(app, 'lm_troux_uid', '495DA6AE-6F13-45A6-9FA7-0288F408942F');
+	Tag.add(app, 'deployment_guid', 'c36cbf66-ec9d-4bfb-8ef0-2e0f285b0f09');
+	Tag.add(app, 'Name', stackName);
+	Tag.add(app, 'lm_sbu', 'ICM');
+	Tag.add(app, 'gde_subscribe_es_logging', 'true');
+	Tag.add(app, 'gde_logging_index', stackName);
 }
 
 export function addCorsOptions(apiResource: apigateway.IResource) {
@@ -84,5 +96,6 @@ export function addCorsOptions(apiResource: apigateway.IResource) {
 }
 
 const app = new cdk.App();
-new ApiLambdaCrudAttestationDBStack(app, 'ApiLambdaCrudDynamoDBExample');
+new ApiLambdaCrudAttestationDBStack(app, 'ApiLambdaCrudAttestationDB');
+addTags(app, 'ApiLambdaCrudAttestationDB');
 app.synth();

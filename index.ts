@@ -8,12 +8,12 @@ export class ApiLambdaCrudAttestationDBStack extends cdk.Stack {
 	constructor(app: cdk.App, id: string) {
 		super(app, id);
 
-		const dynamoTable = new dynamodb.Table(this, 'attestationItems', {
+		const dynamoTable = new dynamodb.Table(this, 'items', {
 			partitionKey: {
 				name: 'itemId',
 				type: dynamodb.AttributeType.STRING,
 			},
-			tableName: 'attestationItems',
+			tableName: 'items',
 
 			// The default removal policy is RETAIN, which means that cdk destroy will not attempt to delete
 			// the new table, and it will remain in your account until manually deleted. By setting the policy to
@@ -33,11 +33,12 @@ export class ApiLambdaCrudAttestationDBStack extends cdk.Stack {
 
 		dynamoTable.grantReadWriteData(createOne);
 
-		const api = new apigateway.RestApi(this, 'attestationItemsApi', {
-			restApiName: 'Attestation Items Service',
+		const api = new apigateway.RestApi(this, 'itemsApi', {
+			restApiName: 'Items Service',
+			cloudWatchRole: false,
 		});
 
-		const items = api.root.addResource('attestationItems');
+		const items = api.root.addResource('items');
 
 		const createOneIntegration = new apigateway.LambdaIntegration(createOne);
 		items.addMethod('POST', createOneIntegration);
@@ -70,7 +71,7 @@ export function addCorsOptions(apiResource: apigateway.IResource) {
 						'method.response.header.Access-Control-Allow-Credentials':
 							"'false'",
 						'method.response.header.Access-Control-Allow-Methods':
-							"'OPTIONS,GET,PUT,POST,DELETE'",
+							"'OPTIONS,GET,PUT,POST,DELETE,PATCH'",
 					},
 				},
 			],

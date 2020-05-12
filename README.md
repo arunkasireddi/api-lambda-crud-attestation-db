@@ -2,6 +2,11 @@
 
 ## Prerequisites
 
+- Make sure you have Node v14.X.X installed
+- If you are using brew, run `brew upgrade node` to install the latest version
+  Note: This is to avoid the incompatibility error with uuid. Issue: https://github.com/aws/aws-cdk/issues/7816
+- If running from local machine, ensure you have `aws configure` set up with valid IAM credentials
+
 ## Build
 
 To build this app, you need to be in this example's root folder. Then run the following:

@@ -4,16 +4,16 @@ import lambda = require('@aws-cdk/aws-lambda');
 import cdk = require('@aws-cdk/core');
 import { Tag } from '@aws-cdk/core';
 
-export class ApiLambdaCrudAttestationDBStack extends cdk.Stack {
+export class AttestationDBStack extends cdk.Stack {
 	constructor(app: cdk.App, id: string) {
 		super(app, id);
 
-		const dynamoTable = new dynamodb.Table(this, 'items', {
+		const dynamoTable = new dynamodb.Table(this, 'attestation-db', {
 			partitionKey: {
 				name: 'itemId',
 				type: dynamodb.AttributeType.STRING,
 			},
-			tableName: 'items',
+			tableName: 'attestation-db',
 
 			// The default removal policy is RETAIN, which means that cdk destroy will not attempt to delete
 			// the new table, and it will remain in your account until manually deleted. By setting the policy to
@@ -21,31 +21,88 @@ export class ApiLambdaCrudAttestationDBStack extends cdk.Stack {
 			removalPolicy: cdk.RemovalPolicy.DESTROY, // NOT recommended for production code
 		});
 
-		const createOne = new lambda.Function(this, 'createItemFunction', {
+		const getOneLambda = new lambda.Function(this, 'getOneItemFunction', {
 			code: new lambda.AssetCode('src'),
-			handler: 'create.handler',
-			runtime: lambda.Runtime.NODEJS_12_X,
+			handler: 'get-one.handler',
+			runtime: lambda.Runtime.NODEJS_10_X,
 			environment: {
 				TABLE_NAME: dynamoTable.tableName,
 				PRIMARY_KEY: 'itemId',
 			},
 		});
 
-		dynamoTable.grantReadWriteData(createOne);
+		const getAllLambda = new lambda.Function(this, 'getAllItemsFunction', {
+			code: new lambda.AssetCode('src'),
+			handler: 'get-all.handler',
+			runtime: lambda.Runtime.NODEJS_10_X,
+			environment: {
+				TABLE_NAME: dynamoTable.tableName,
+				PRIMARY_KEY: 'itemId',
+			},
+		});
 
-		const api = new apigateway.RestApi(this, 'itemsApi', {
+		const createOne = new lambda.Function(this, 'createItemFunction', {
+			code: new lambda.AssetCode('src'),
+			handler: 'create.handler',
+			runtime: lambda.Runtime.NODEJS_10_X,
+			environment: {
+				TABLE_NAME: dynamoTable.tableName,
+				PRIMARY_KEY: 'itemId',
+			},
+		});
+
+		const updateOne = new lambda.Function(this, 'updateItemFunction', {
+			code: new lambda.AssetCode('src'),
+			handler: 'update-one.handler',
+			runtime: lambda.Runtime.NODEJS_10_X,
+			environment: {
+				TABLE_NAME: dynamoTable.tableName,
+				PRIMARY_KEY: 'itemId',
+			},
+		});
+
+		const deleteOne = new lambda.Function(this, 'deleteItemFunction', {
+			code: new lambda.AssetCode('src'),
+			handler: 'delete-one.handler',
+			runtime: lambda.Runtime.NODEJS_10_X,
+			environment: {
+				TABLE_NAME: dynamoTable.tableName,
+				PRIMARY_KEY: 'itemId',
+			},
+		});
+
+		dynamoTable.grantReadWriteData(getAllLambda);
+		dynamoTable.grantReadWriteData(getOneLambda);
+		dynamoTable.grantReadWriteData(createOne);
+		dynamoTable.grantReadWriteData(updateOne);
+		dynamoTable.grantReadWriteData(deleteOne);
+
+		const api = new apigateway.RestApi(this, 'attestationApi', {
 			restApiName: 'Items Service',
 			cloudWatchRole: false,
 		});
 
-		const items = api.root.addResource('items');
+		const attestationItems = api.root.addResource('items');
+		const getAllIntegration = new apigateway.LambdaIntegration(getAllLambda);
+		attestationItems.addMethod('GET', getAllIntegration);
 
 		const createOneIntegration = new apigateway.LambdaIntegration(createOne);
-		items.addMethod('POST', createOneIntegration);
-		addCorsOptions(items);
+		attestationItems.addMethod('POST', createOneIntegration);
+		addCorsOptions(attestationItems);
+
+		const singleItem = attestationItems.addResource('{id}');
+		const getOneIntegration = new apigateway.LambdaIntegration(getOneLambda);
+		singleItem.addMethod('GET', getOneIntegration);
+
+		const updateOneIntegration = new apigateway.LambdaIntegration(updateOne);
+		singleItem.addMethod('PATCH', updateOneIntegration);
+
+		const deleteOneIntegration = new apigateway.LambdaIntegration(deleteOne);
+		singleItem.addMethod('DELETE', deleteOneIntegration);
+		addCorsOptions(singleItem);
 	}
 }
-
+// Add tags to resources
 export function addTags(app: cdk.App, stackName: string) {
 	Tag.add(app, 'lm_app_env', 'dev');
 	Tag.add(app, 'lm_app', stackName);
@@ -57,6 +114,7 @@ export function addTags(app: cdk.App, stackName: string) {
 	Tag.add(app, 'gde_logging_index', stackName);
 }
 
+// Add CORS options and response object formats
 export function addCorsOptions(apiResource: apigateway.IResource) {
 	apiResource.addMethod(
 		'OPTIONS',
@@ -71,7 +129,7 @@ export function addCorsOptions(apiResource: apigateway.IResource) {
 						'method.response.header.Access-Control-Allow-Credentials':
 							"'false'",
 						'method.response.header.Access-Control-Allow-Methods':
-							"'OPTIONS,GET,PUT,POST,DELETE,PATCH'",
+							"'OPTIONS,GET,PUT,POST,DELETE'",
 					},
 				},
 			],
@@ -97,6 +155,6 @@ export function addCorsOptions(apiResource: apigateway.IResource) {
 }
 
 const app = new cdk.App();
-new ApiLambdaCrudAttestationDBStack(app, 'ApiLambdaCrudAttestationDB');
+new AttestationDBStack(app, 'AttestationDBStack');
 addTags(app, 'ApiLambdaCrudAttestationDB');
 app.synth();
